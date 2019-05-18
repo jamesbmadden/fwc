@@ -1,3 +1,9 @@
+## 0.3.0
+<ul>
+  <li>Properties now come from a config object rather than the deconstruction assignment to allow better compatibility.</li>
+  <li>The returned instance of the Component class now has many methods to allow it to be used in the construction of other components.</li>
+</ul>
+
 ## 0.2.1
 <ul>
   <li>Components class now has a static "defined" method that returns an array of defined components.</li>
