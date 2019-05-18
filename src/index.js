@@ -1,5 +1,13 @@
 import { html, Component } from './fc.js';
 
+const Counter = new Component('simple-counter', ({count}, instance) => {
+  return html`
+    <button @click=${() => {instance.count--}}>-</button><span>${count}</span><button @click=${() => {instance.count++}}>+</button>
+  `;
+}, {
+  properties: ['count']
+});
+
 const HOME = new Component('fc-home', ({version}) => {
   return html`
     <style>
@@ -17,19 +25,11 @@ const HOME = new Component('fc-home', ({version}) => {
     <hello-world planet="World"></hello-world>
     <img src="https://raw.githubusercontent.com/jamesbmadden/fwc/master/img/hello-world-0.3.png">
     <h3>Example: Simple Counter</h3>
-    <simple-counter count="0"></simple-counter>
+    ${Counter.new({count: 0})}
     <img src="https://raw.githubusercontent.com/jamesbmadden/fwc/master/img/counter-example-0.3.png">
   `;
 }, {
   properties: ['version']
-});
-
-const Counter = new Component('simple-counter', ({count}, instance) => {
-  return html`
-    <button @click=${() => {instance.count--}}>-</button><span>${count}</span><button @click=${() => {instance.count++}}>+</button>
-  `;
-}, {
-  properties: ['count']
 });
 
 const HelloWorld = new Component('hello-world', ({ planet }) => {
