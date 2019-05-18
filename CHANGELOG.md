@@ -1,3 +1,10 @@
+## 0.2.1
+<ul>
+  <li>Components class now has a static "defined" method that returns an array of defined components.</li>
+  <li>Functions are now better documented to provide better autocomplete suggestions in editors such as Visual Studio Code.</li>
+</ul>
+
+
 ## 0.2.0
 <ul>
   <li>Lit-Html is now exported directly from the fwc package, so you no longer have to install and import from the lit-html package seperately.</li>
