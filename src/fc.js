@@ -19,11 +19,12 @@ export class Component {
    * Creates a Component.
    * @param {string} name - The tag of the component.
    * @param {function} render - The function used to render the component.
+   * @param {object} config - The component's configuration
    */
-  constructor (name, render) {
+  constructor (name, render, {properties = []}) {
     this.name = name;
     this.render = render;
-    let props = this.getProperties();
+    let props = properties;
     class Comp extends HTMLElement {
       constructor () {
         super();
@@ -58,18 +59,6 @@ export class Component {
     Comp.compName = this.name;
     customElements.define(name, Comp);
     FC_COMPONENTS.push(name);
-  }
-
-  /**
-   * Get the observed properties for the component.
-   */
-  getProperties () {
-    let renderString = this.render.toString();
-    let propertiesString = renderString.split('{')[1].split('}')[0];
-    const props = propertiesString.split(',').map(value => {
-      return value.trim();
-    });
-    return props;
   }
 
 }
