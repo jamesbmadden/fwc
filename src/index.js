@@ -17,10 +17,14 @@ const HOME = new Component('fc-home', ({version}) => {
     <simple-counter count="0"></simple-counter>
     <img src="https://raw.githubusercontent.com/jamesbmadden/fwc/master/img/counter-example-0.2.png">
   `;
+}, {
+  properties: ['version']
 });
 
 const Counter = new Component('simple-counter', ({count}, instance) => {
   return html`
     <button @click=${() => {instance.count--}}>-</button><span>${count}</span><button @click=${() => {instance.count++}}>+</button>
   `;
+}, {
+  properties: ['count']
 });
