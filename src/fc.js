@@ -8,13 +8,21 @@ export const html = lit.html;
 
 export class Component {
 
+  /**
+   * Returns list of components defined with FWC.
+   */
   static get defined () {
     return FC_COMPONENTS;
   }
 
-  constructor (name, _render) {
+  /**
+   * Creates a Component.
+   * @param {string} name - The tag of the component.
+   * @param {function} render - The function used to render the component.
+   */
+  constructor (name, render) {
     this.name = name;
-    this.render = _render;
+    this.render = render;
     let props = this.getProperties();
     class Comp extends HTMLElement {
       constructor () {
@@ -43,7 +51,7 @@ export class Component {
         return props;
       }
       _runRender() {
-        lit.render(_render(this._attr, this), this.shadowRoot);
+        lit.render(render(this._attr, this), this.shadowRoot);
       }
     };
     Comp.props = props;
@@ -52,6 +60,9 @@ export class Component {
     FC_COMPONENTS.push(name);
   }
 
+  /**
+   * Get the observed properties for the component.
+   */
   getProperties () {
     let renderString = this.render.toString();
     let propertiesString = renderString.split('{')[1].split('}')[0];
