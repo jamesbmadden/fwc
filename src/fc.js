@@ -2,7 +2,7 @@ import * as lit from 'lit-html';
 
 window.FC_COMPONENTS = window.FC_COMPONENTS || [];
 window.FC_VERSIONS = window.FC_VERSIONS || [];
-FC_VERSIONS.push('0.0.1');
+FC_VERSIONS.push('0.2.1');
 
 export const html = lit.html;
 
