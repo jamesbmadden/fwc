@@ -1,8 +1,10 @@
-import { render } from 'lit-html';
+import * as lit from 'lit-html';
 
 window.FC_COMPONENTS = window.FC_COMPONENTS || [];
 window.FC_VERSIONS = window.FC_VERSIONS || [];
 FC_VERSIONS.push('0.0.1');
+
+export const html = lit.html;
 
 export class Component {
 
@@ -14,8 +16,17 @@ export class Component {
       constructor () {
         super();
         this._attr = {};
-        props.forEach(value => {
-          this._attr[value] = this.getAttribute(value);
+        props.forEach(prop => {
+          this._attr[prop] = this.getAttribute(prop);
+          Object.defineProperty(this, prop, {
+            get: () => {
+              return this._attr[prop]
+            },
+            set: value => {
+              this.setAttribute(prop, value);
+              return this._attr[prop] = value;
+            }
+          })
         });
         this.attachShadow({ mode: 'open' });
         this._runRender();
@@ -28,7 +39,7 @@ export class Component {
         return props;
       }
       _runRender() {
-        render(_render(this._attr), this.shadowRoot);
+        lit.render(_render(this._attr, this), this.shadowRoot);
       }
     };
     Comp.props = props;
