@@ -1,3 +1,8 @@
+## 0.3.1
+<ul>
+  <li>Fixed File Location</li>
+</ul>
+
 ## 0.3.0
 <ul>
   <li>Properties now come from a config object rather than the deconstruction assignment to allow better compatibility.</li>
