@@ -15,7 +15,7 @@ const HOME = new Component('fc-home', ({version}) => {
     <p>The Power of Lit-Element with the Simplicity of Function-Based Components</p>
     <h3>Example: Simple Counter</h3>
     <simple-counter count="0"></simple-counter>
-    <img src="https://raw.githubusercontent.com/jamesbmadden/fwc/master/img/counter-example-0.2.png">
+    <img src="https://raw.githubusercontent.com/jamesbmadden/fwc/master/img/counter-example-0.3.png">
   `;
 }, {
   properties: ['version']
