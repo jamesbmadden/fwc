@@ -1,5 +1,4 @@
-import { html } from 'lit-html';
-import { Component } from './fc.js';
+import { html, Component } from './fc.js';
 
 const HOME = new Component('fc-home', ({version}) => {
   return html`
@@ -11,5 +10,12 @@ const HOME = new Component('fc-home', ({version}) => {
     <h1>Functional Components v${version}</h1>
     <h2>Custom Elements, Built with Functions & Lit-Html</h2>
     <p>The Power of Lit-Element with the Simplicity of Function-Based Components</p>
+    <h3>Example: Simple Counter</h3>
+    <simple-counter count="0"></simple-counter>
   `;
+});
+
+const Counter = new Component('simple-counter', ({count}, instance) => {
+  return html`
+  <button @click=${() => {instance.count--}}>-</button><span>${count}</span><button @click=${() => {instance.count++}}>+</button>`;
 });
