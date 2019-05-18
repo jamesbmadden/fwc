@@ -1,8 +1,8 @@
 {
   "name": "fwc",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Functional Component Library Based on lit-html",
-  "main": "./functional-components.js",
+  "main": "./src/fc.js",
   "dependencies": {
     "lit-html": "^1.0.0"
   },
