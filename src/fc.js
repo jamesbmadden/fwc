@@ -15,16 +15,24 @@ export class Component {
     return FC_COMPONENTS;
   }
 
+  new (properties) {
+    let instance = document.createElement(this.name);
+    Object.keys(properties).forEach(key => {
+      instance[key] = properties[key];
+    });
+    return instance;
+  }
+
   /**
    * Creates a Component.
    * @param {string} name - The tag of the component.
    * @param {function} render - The function used to render the component.
    * @param {object} config - The component's configuration
    */
-  constructor (name, render, {properties = []}) {
+  constructor (name, render, config = {properties: []}) {
     this.name = name;
     this.render = render;
-    let props = properties;
+    let props = config.properties;
     class Comp extends HTMLElement {
       constructor () {
         super();
