@@ -17,5 +17,6 @@ const HOME = new Component('fc-home', ({version}) => {
 
 const Counter = new Component('simple-counter', ({count}, instance) => {
   return html`
-  <button @click=${() => {instance.count--}}>-</button><span>${count}</span><button @click=${() => {instance.count++}}>+</button>`;
+    <button @click=${() => {instance.count--}}>-</button><span>${count}</span><button @click=${() => {instance.count++}}>+</button>
+  `;
 });
