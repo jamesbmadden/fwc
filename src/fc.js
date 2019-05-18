@@ -8,6 +8,10 @@ export const html = lit.html;
 
 export class Component {
 
+  static get defined () {
+    return FC_COMPONENTS;
+  }
+
   constructor (name, _render) {
     this.name = name;
     this.render = _render;
